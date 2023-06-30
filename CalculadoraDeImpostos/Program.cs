@@ -14,11 +14,13 @@ namespace CalculadoraDeImpostos
 
             Imposto icms = new ICMS();
             Imposto iss = new ISS();
+            Imposto iccc = new ICCC();
 
             CalculadoraDeImposto calculadora = new CalculadoraDeImposto();
 
             calculadora.RealizaCalculo(orcamento, icms);
             calculadora.RealizaCalculo(orcamento, iss);
+            calculadora.RealizaCalculo(orcamento, iccc);
 
             Console.Read();
         }
