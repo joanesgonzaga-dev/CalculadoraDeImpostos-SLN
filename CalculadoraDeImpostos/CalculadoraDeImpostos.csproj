@@ -43,11 +43,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CalculadoraDeDescontos.cs" />
     <Compile Include="CalculadoraDeImposto.cs" />
     <Compile Include="ICCC.cs" />
     <Compile Include="ICMS.cs" />
     <Compile Include="Imposto.cs" />
     <Compile Include="ISS.cs" />
+    <Compile Include="Item.cs" />
     <Compile Include="Orcamento.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
