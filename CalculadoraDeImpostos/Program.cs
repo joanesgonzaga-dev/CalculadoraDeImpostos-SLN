@@ -10,19 +10,17 @@ namespace CalculadoraDeImpostos
     {
         static void Main(string[] args)
         {
-            Orcamento orcamento = new Orcamento(2500.00);
+            CalculadoraDeDescontos calculadoraDeDescontos = new CalculadoraDeDescontos();
 
-            Imposto icms = new ICMS();
-            Imposto iss = new ISS();
-            Imposto iccc = new ICCC();
+            Orcamento orcamento = new Orcamento();
+            orcamento.AdicionaItem(new Item("CANETA", 250));
+            orcamento.AdicionaItem(new Item("LAPIS", 200));
+            orcamento.AdicionaItem(new Item("MOCHILA", 000));
 
-            CalculadoraDeImposto calculadora = new CalculadoraDeImposto();
+            double desconto = calculadoraDeDescontos.Calcula(orcamento);
 
-            calculadora.RealizaCalculo(orcamento, icms);
-            calculadora.RealizaCalculo(orcamento, iss);
-            calculadora.RealizaCalculo(orcamento, iccc);
-
-            Console.Read();
+            Console.WriteLine($"O desconto é de: {desconto}");
+            Console.ReadKey();
         }
     }
 }

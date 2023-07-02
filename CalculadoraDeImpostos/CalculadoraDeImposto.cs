@@ -12,7 +12,7 @@ namespace CalculadoraDeImpostos
         {
             double valor = imposto.Calcula(orcamento);
 
-            Console.WriteLine(valor);
+            Console.WriteLine($"{valor}");
         }
     }
 }
