@@ -12,13 +12,12 @@ namespace CalculadoraDeImpostos
 
         public double Desconta(Orcamento orcamento)
         {
-                if (Existe(orcamento, "LAPIS") & Existe(orcamento, "CANETA"))
-                {
-                    return orcamento.Valor * 0.05;
-                }
+            if (Existe(orcamento, "LAPIS") & Existe(orcamento, "CANETA"))
+            {
+                return orcamento.Valor * 0.05;
+            }
             return Proximo.Desconta(orcamento);
         }
-
         private bool Existe(Orcamento orcamento, string nomeItem)
         {
             foreach (var item in orcamento.Itens)

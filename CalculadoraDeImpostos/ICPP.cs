@@ -6,16 +6,16 @@ using System.Threading.Tasks;
 
 namespace CalculadoraDeImpostos
 {
-    public class DescontoPorMaisDeQuinhentosReais : IDesconto
+    public class ICPP : Imposto
     {
-        public IDesconto Proximo { get; set;}
-        public double Desconta(Orcamento orcamento)
+        public double Calcula(Orcamento orcamento)
         {
             if (orcamento.Valor >= 500)
             {
                 return orcamento.Valor * 0.07;
             }
-            return Proximo.Desconta(orcamento);
+
+            return orcamento.Valor * 0.05;
         }
     }
 }

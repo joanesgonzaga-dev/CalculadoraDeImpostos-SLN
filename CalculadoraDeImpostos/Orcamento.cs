@@ -12,15 +12,12 @@ namespace CalculadoraDeImpostos
         public List<Item> Itens { get; set; }
         public Orcamento()
         {
-            //Valor = valor;
             Itens = new List<Item>();
         }
-
         public Orcamento(double valor) : base()
         {
             Valor = valor;
         }
-
         public void AdicionaItem(Item item)
         {
             Itens.Add(item);
