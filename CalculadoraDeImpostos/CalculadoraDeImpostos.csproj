@@ -52,6 +52,7 @@
     <Compile Include="ICMS.cs" />
     <Compile Include="ICPP.cs" />
     <Compile Include="IDesconto.cs" />
+    <Compile Include="IHIT.cs" />
     <Compile Include="IKCV.cs" />
     <Compile Include="Imposto.cs" />
     <Compile Include="ISS.cs" />
@@ -60,6 +61,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SemDesconto.cs" />
+    <Compile Include="TemplateDeImpostoCondicional.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

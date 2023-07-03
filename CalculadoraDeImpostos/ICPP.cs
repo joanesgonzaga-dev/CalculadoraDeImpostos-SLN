@@ -6,15 +6,20 @@ using System.Threading.Tasks;
 
 namespace CalculadoraDeImpostos
 {
-    public class ICPP : Imposto
+    public class ICPP : TemplateDeImpostoCondicional
     {
-        public double Calcula(Orcamento orcamento)
+        public override bool isUsarMaximaTaxacao(Orcamento orcamento)
         {
-            if (orcamento.Valor >= 500)
-            {
-                return orcamento.Valor * 0.07;
-            }
+            return orcamento.Valor > 5000.00;
+        }
 
+        protected override double MaximaTaxacao(Orcamento orcamento)
+        {
+            return orcamento.Valor * 0.07;
+        }
+
+        protected override double MinimaTaxacao(Orcamento orcamento)
+        {
             return orcamento.Valor * 0.05;
         }
     }
