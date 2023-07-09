@@ -10,19 +10,43 @@ namespace CalculadoraDeImpostos
     {
         static void Main(string[] args)
         {
-            Orcamento orcamento = new Orcamento();
-            orcamento.AdicionaItem(new Item("CANETA", 250));
-            orcamento.AdicionaItem(new Item("LAPIS", 200));
-            orcamento.AdicionaItem(new Item("MOCHILA", 100));
-            orcamento.AdicionaItem(new Item("MOCHILA", 100));
-            orcamento.AdicionaItem(new Item("LANCHEIRA", 150));
-            orcamento.AdicionaItem(new Item("BORRACHA", 50));
+            List<ContaBancaria> contas = new List<ContaBancaria>()
+            {
+                new ContaBancaria()
+                {
+                    Agencia = "1820",
+                    Conta   = "316-05",
+                    Titular = "FULANO DE TAL DA SILVA DAS ARABIAS",
+                    Saldo   = 2800.00M
+                },
+                new ContaBancaria()
+                {
+                    Agencia = "2020",
+                    Conta   = "658-02",
+                    Titular = "CICLANO DA SILVA",
+                    Saldo   = 1300.00M
+                },
 
-            IHIT ihit = new IHIT();
+                new ContaBancaria()
+                {
+                    Agencia = "0598",
+                    Conta   = "674-57",
+                    Titular = "JOAO GASTAO",
+                    Saldo   = -20.00M
+                },
 
-            double imposto = ihit.Calcula(orcamento);
+                new ContaBancaria()
+                {
+                    Agencia = "2020",
+                    Conta   = "338-90",
+                    Titular = "JOANES DE AVIZ",
+                    Saldo   = 5300.00M
+                }
+            };
 
-            Console.WriteLine($"Imposto: {imposto}");
+            RelatorioComplexo relatorioComplexo = new RelatorioComplexo();
+            relatorioComplexo.ExibirRelatorio(contas);
+
             Console.ReadKey();
         }
 
@@ -58,6 +82,22 @@ namespace CalculadoraDeImpostos
             Console.ReadKey();
         }
 
-        
+        /*
+         *
+         Orcamento orcamento = new Orcamento();
+            //orcamento.AdicionaItem(new Item("CANETA", 250));
+            //orcamento.AdicionaItem(new Item("LAPIS", 200));
+            //orcamento.AdicionaItem(new Item("MOCHILA", 100));
+            //orcamento.AdicionaItem(new Item("MOCHILA", 100));
+            //orcamento.AdicionaItem(new Item("LANCHEIRA", 150));
+            //orcamento.AdicionaItem(new Item("BORRACHA", 50));
+
+            //IHIT ihit = new IHIT();
+
+            //double imposto = ihit.Calcula(orcamento);
+
+            //Console.WriteLine($"Imposto: {imposto}");
+            //Console.ReadKey();
+        */
     }
 }
