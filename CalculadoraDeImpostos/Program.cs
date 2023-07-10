@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CalculadoraDeImpostos
 {
@@ -10,6 +7,17 @@ namespace CalculadoraDeImpostos
     {
         static void Main(string[] args)
         {
+            #region Instancia Orcamento
+            Orcamento orcamento = new Orcamento();
+            orcamento.AdicionaItem(new Item("CANETA", 250));
+            orcamento.AdicionaItem(new Item("LAPIS", 200));
+            orcamento.AdicionaItem(new Item("MOCHILA", 100));
+            orcamento.AdicionaItem(new Item("MOCHILA", 100));
+            orcamento.AdicionaItem(new Item("LANCHEIRA", 150));
+            orcamento.AdicionaItem(new Item("BORRACHA", 50));
+            #endregion
+
+            #region Instancia Lista de ContaBancaria
             List<ContaBancaria> contas = new List<ContaBancaria>()
             {
                 new ContaBancaria()
@@ -43,13 +51,14 @@ namespace CalculadoraDeImpostos
                     Saldo   = 5300.00M
                 }
             };
+            #endregion
 
-            RelatorioComplexo relatorioComplexo = new RelatorioComplexo();
-            relatorioComplexo.ExibirRelatorio(contas);
+            ICMS icms = new ICMS(new ISS());
+            double taxa = icms.Calcula(orcamento);
 
+            Console.WriteLine($"Total de Impostos:{taxa:C2}");
             Console.ReadKey();
         }
-
 
         private static void CalculaDescontos()
         {
@@ -65,7 +74,6 @@ namespace CalculadoraDeImpostos
             Console.WriteLine($"O desconto é de: {desconto}");
             Console.ReadKey();
         }
-
         private static void CalculaImpostos()
         {
             Orcamento orcamento = new Orcamento();
@@ -81,23 +89,44 @@ namespace CalculadoraDeImpostos
 
             Console.ReadKey();
         }
+        private static void ExibeMenuRelatorios(List<ContaBancaria> contas)
+        {
+            string read = string.Empty;
+            do
+            {
+                Console.WriteLine("Selecione o modelo de relatório \n(S - Simples, C - Completo): ");
+                read = Console.ReadLine();
 
-        /*
-         *
-         Orcamento orcamento = new Orcamento();
-            //orcamento.AdicionaItem(new Item("CANETA", 250));
-            //orcamento.AdicionaItem(new Item("LAPIS", 200));
-            //orcamento.AdicionaItem(new Item("MOCHILA", 100));
-            //orcamento.AdicionaItem(new Item("MOCHILA", 100));
-            //orcamento.AdicionaItem(new Item("LANCHEIRA", 150));
-            //orcamento.AdicionaItem(new Item("BORRACHA", 50));
+                if (read.Equals("S"))
+                {
+                    Console.Clear();
+                    RelatorioSimples relatorioSiples = new RelatorioSimples();
+                    relatorioSiples.ExibirRelatorio(contas);
+                }
 
-            //IHIT ihit = new IHIT();
+                else if (read.Equals("C"))
+                {
+                    Console.Clear();
+                    RelatorioComplexo relatorioComplexo = new RelatorioComplexo();
+                    relatorioComplexo.ExibirRelatorio(contas);
+                }
 
-            //double imposto = ihit.Calcula(orcamento);
+                else if (read.Equals("q") || read.Equals("Q"))
+                {
+                    Console.Clear();
+                    break;
+                }
 
-            //Console.WriteLine($"Imposto: {imposto}");
-            //Console.ReadKey();
-        */
+                else
+                {
+                    Console.Clear();
+                }
+
+            } while (read != "q" || read != "Q");
+
+            Console.WriteLine("Pressione uma tecla para fechar...");
+            Console.ReadKey();
+        }
+
     }
 }

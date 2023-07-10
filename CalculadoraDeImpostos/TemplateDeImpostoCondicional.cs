@@ -8,7 +8,9 @@ namespace CalculadoraDeImpostos
 {
     public abstract class TemplateDeImpostoCondicional : Imposto
     {
-        public double Calcula(Orcamento orcamento)
+        public TemplateDeImpostoCondicional(): base(){}
+        public TemplateDeImpostoCondicional(Imposto outroImposto): base(outroImposto){}
+        public override double Calcula(Orcamento orcamento)
         {
             if (isUsarMaximaTaxacao(orcamento))
             {

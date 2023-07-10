@@ -6,8 +6,22 @@ using System.Threading.Tasks;
 
 namespace CalculadoraDeImpostos
 {
-    public interface Imposto
+    public abstract class Imposto
     {
-        double Calcula(Orcamento orcamento);
+        public Imposto OutroImposto { get; set; }
+        public Imposto()
+        {
+            OutroImposto = null;
+        }
+        public Imposto(Imposto outroImposto)
+        {
+            this.OutroImposto = outroImposto;
+        }
+        public abstract double Calcula(Orcamento orcamento);
+        protected double CalculaOutroImposto(Orcamento orcamento)
+        {
+            if (OutroImposto == null) return 0.0;   
+                return OutroImposto.Calcula(orcamento);
+        }
     }
 }

@@ -8,7 +8,8 @@ namespace CalculadoraDeImpostos
 {
     public class ICCC : Imposto
     {
-        public double Calcula(Orcamento orcamento)
+        public ICCC(Imposto outroImposto): base(outroImposto){ }
+        public override double Calcula(Orcamento orcamento)
         {
             double valor = orcamento.Valor;
             double tax = 0.00;
@@ -25,7 +26,10 @@ namespace CalculadoraDeImpostos
                 tax = (valor * 0.08) + 30.00;
             }
 
-            return tax;
+            return tax + CalculaOutroImposto(orcamento);
         }
+
+
+        
     }
 }
