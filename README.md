@@ -7,3 +7,4 @@ Implementação demo do padrão de projeto Strategy
 <a>>Nenhuma</a>
 <h2>Layout</h2>
 <a>>c:\aplicativo de console>_</a>
+<img src="#"></img>
