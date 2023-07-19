@@ -6,6 +6,4 @@ Implementação demo do padrão de projeto Strategy
 <li>Dependências:</li>
 <a>>Nenhuma</a>
 <h2>Layout</h2>
-
-''' npm install '''
-
+<a>>c:\aplicativo de console</a>
