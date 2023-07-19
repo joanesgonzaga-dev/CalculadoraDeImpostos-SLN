@@ -6,4 +6,7 @@ Implementação demo do padrão de projeto Strategy
 <li>Dependências:</li>
 <a>>Nenhuma</a>
 <h2>Layout</h2>
-<a>>aplicativo de Console</a>
+```
+C:\aplicativo de console
+```
+
