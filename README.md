@@ -5,3 +5,5 @@ Implementação demo do padrão de projeto Strategy
 <a>>.Net Framework 4.7.5</a>
 <li>Dependências:</li>
 <a>>Nenhuma</a>
+<h2>Layout</h2>
+<a>>aplicativo de Console</a>
